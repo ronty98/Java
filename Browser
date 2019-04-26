@@ -1,0 +1,117 @@
+
+package src.browser;
+
+public abstract class BrowserFactory  {
+
+	protected abstract Browser createBrowser(String type);
+	
+	public static Browser check(String style, String type) {
+		BrowserFactory factory = null;
+		if(style.equals("txt")) {
+			factory = new txtFactory();
+		}else if(style.equals("pdf")) {
+			factory = new pdfFactory();
+		}else if(style.equals("hypertext")) {
+			factory = new hypertextFactory();
+		}
+		Browser browser = factory.createBrowser(type);	
+		browser.display();
+		return browser;
+	}
+	
+}
+
+
+public class txtFactory extends BrowserFactory{
+	
+	public Browser createBrowser(String type) {
+		Browser browser = null;
+		if(style.equals("txt")) {
+			browser = new MSWord();
+		}
+		return browser;
+	}
+
+}
+
+public class MSWord extends Browser {
+	
+	
+	@Override
+	public void display() {
+		System.out.println(type+ " is displayed by MS Word");
+	}
+
+public class pdfFactory extends BrowserFactory{
+	
+	public Browser createBrowser(String type) {
+		Browser browser = null;
+		if(style.equals("pdf")) {
+			browser = new AdobeAcrobat();
+		}
+		return browser;
+	}
+	
+}
+
+
+public class AdobeAcrobat extends Browser {
+	
+	
+	@Override
+	public void display() {
+		System.out.println(type+ " is displayed by Adobe Acrobat");
+	}
+
+public class hypertextFactory extends BrowserFactory{
+	
+	public Browser createBrowser(String type) {
+	
+		Browser browser = null;
+		if(style.equals("pdf")) {
+			browser = new AdobeAcrobat();
+		}
+		return browser;
+	}
+	
+}
+
+public class HTML extends Browser {
+	
+	
+	@Override
+	public void display() {
+		System.out.println(type+ " is displayed by HTML");
+	}
+
+
+
+abstract public class Browser {
+	abstract public void display();
+}
+
+
+public class BrowserName {
+	
+	public static Browser check(String style, String type) {
+		return BrowserFactory.check(style,type);	
+	}
+
+}
+
+import javax.swing.JOptionPane;
+
+public class Test {
+
+	public static void main(String[] args) {
+		String style = JOptionPane.showInputDialog("What is the extension?");
+		String type = JOptionPane.showInputDialog("What is the name of the document?");
+		Browser browser = BrowserName.check(style, type);
+		
+	}
+
+}
+
+
+
+
