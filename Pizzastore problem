@@ -1,0 +1,210 @@
+import java.util.*;
+
+public class Client {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int c1;
+		int c2=0;
+		int c3=0;
+		int c4=0;
+		int c5=0;
+		int c6=0;
+		int c7=0;
+		
+		
+		System.out.println("Menu ##########");
+		System.out.println("Enter Store number: ");
+		c1=sc.nextInt();
+		switch(c1)
+		{
+		case 1: System.out.println("Styles: \n 1. NorthIndian \n 2. American \n 3. Barbeque");
+		System.out.println("Types: \n 1. Chicken \n 2. Paneer \n 3. Corn");
+		c2=sc.nextInt();
+		c3=sc.nextInt();
+		break;
+		case 2: System.out.println("Styles: \n 1. NorthIndian \n 2. American \n 3. Barbeque");
+		System.out.println("Types: \n 1. Chicken \n 2. Paneer \n 3. Corn");
+		c4=sc.nextInt();
+		c5=sc.nextInt();
+		break;
+		case 3: System.out.println("Styles: \n 1. NorthIndian \n 2. American \n 3. Barbeque");
+		System.out.println("Types: \n 1. Chicken \n 2. Paneer \n 3. Corn");
+		c6=sc.nextInt();
+		c7=sc.nextInt();
+		break;
+		}
+		
+		PizzaStore obj=new PizzaStore();
+		
+		if(c2==1 && c3==1)
+                {
+                    obj.orderPizza("NorthIndian","Chicken");
+                }
+                
+                else if(c2==2 && c3==3)
+                {
+                    obj.orderPizza("American","Corn");
+                }
+                else if(c2==2 && c3==2)
+                {
+                    obj.orderPizza("American","Paneer");
+                }
+                else if(c2==3 && c3==1)
+                {
+                    obj.orderPizza("Barbeque","Chicken");
+                }
+                else {
+                    System.out.println("Sorry this choice cannot be found in this store \n");
+                }
+                
+                
+                if(c4==1 && c5==1)
+                {
+                    obj.orderPizza("NorthIndian","Chicken");
+                }
+                
+                else if(c4==2 && c5==2)
+                {
+                    obj.orderPizza("American","Paneer");
+                }
+                else if(c4==3 && c5==3)
+                {
+                    obj.orderPizza("Barbeque","Corn");
+                }
+                else{
+                    System.out.println("Sorry this choice cannot be found in this store \n");
+                }
+                
+                
+                if(c6==1 && c7==1)
+                {
+                    obj.orderPizza("American","Paneer");
+                }
+                
+                else if(c2==2 && c3==3)
+                {
+                    obj.orderPizza("Barbeque","Paneer");
+                }
+                else if(c2==2 && c3==2)
+                {
+                    obj.orderPizza("American","Corn");
+                }
+               
+		else{
+                    System.out.println("Sorry this choice cannot be found in this store \n");
+                }
+		
+				}
+	}
+
+class PizzaStore
+{
+	public void orderPizza(String style,String type)
+	{               
+		        Pizza obj=new Pizza(style,type);
+	                if(style=="NorthIndian" && type=="Chicken")
+			{
+			
+			obj.prepare();
+			obj.bake();
+			obj.cut();
+			obj.box();
+                        }
+                        else if(style=="American" && type=="Corn")
+                        {
+                        obj.prepare();
+			obj.bake();
+			obj.cut();
+			obj.box();
+                        }
+                        else if(style=="American" && type=="Paneer")
+                        {
+                        obj.prepare();
+			obj.bake();
+			obj.cut();
+			obj.box();
+                        }
+                        else if(style=="Barbeque" && type=="Chicken")
+                        {
+                        obj.prepare();
+			obj.bake();
+			obj.cut();
+			obj.box();
+                        }
+		
+		
+	            if(style=="NorthIndian" && type=="Chicken")
+			{
+			obj.prepare();
+			obj.bake();
+			obj.cut();
+			obj.box();
+                        }
+                        else if(style=="Barbeque" && type=="Corn")
+                        {
+                        obj.prepare();
+			obj.bake();
+			obj.cut();
+			obj.box();
+                        }
+                        else if(style=="American" && type=="Paneer")
+                        {
+                        obj.prepare();
+			obj.bake();
+			obj.cut();
+			obj.box();
+                        }
+
+		    if(style=="American" && type=="Corn")
+			{
+			obj.prepare();
+			obj.bake();
+			obj.cut();
+			obj.box();
+                        }
+                        else if(style=="Barbeque" && type=="Paneer")
+                        {
+                        obj.prepare();
+			obj.bake();
+			obj.cut();
+			obj.box();
+                        }
+                        else if(style=="American" && type=="Paneer")
+                        {
+                        obj.prepare();
+			obj.bake();
+			obj.cut();
+			obj.box();
+                        }
+                    }	
+                }
+
+
+class Pizza 
+{
+	 String type;
+	 String style;
+	 Pizza(String a, String b)
+	 {
+		 type=a;
+		 style=b;
+	 }
+	 void prepare()
+	 {
+		 System.out.println( type +" type "+ style + " style is being prepared");
+         }
+	 void bake()
+	 {
+		System.out.println( type +" type "+ style + " style is being baked");
+	 }
+	 void cut()
+	 {
+                System.out.println( type +" type "+ style + " style is being cut");
+	 }
+	 void box()
+	 {
+		 System.out.println( type +" type "+ style + " style is being boxed");
+         }
+}
